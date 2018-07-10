@@ -13,6 +13,7 @@ public class ExampleApplication extends ResourceConfig {
         register(new SubjectFactory());
         register(new AuthInjectionBinder());
         register(new ShiroExceptionMapper());
+        register(new UserFactory());
 
         register(new HelloWorldResource());
         register(new AuthResource());

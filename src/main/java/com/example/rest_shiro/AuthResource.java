@@ -7,20 +7,27 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.secnod.shiro.jaxrs.Auth;
 
 @Path("/auth")
 @Produces(MediaType.TEXT_PLAIN)
-@RequiresPermissions("protected:read")
 public class AuthResource {
-
+	@GET
+	@Path("/access")
+	@RequiresPermissions("protected:read")
+    public String getxxx() {
+        return "OK";
+    }
+	
     @GET
-    public String get() {
+    public String get(@Auth User user) {
+    	user.checkPermissionBySomeRule();
         return "OK";
     }
 
     @PUT
     @RequiresPermissions("protected:write")
-    public String set(String value) {
-        return value;
+    public String set() {
+        return "xxx";
     }
 }

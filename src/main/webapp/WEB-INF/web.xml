@@ -1,8 +1,7 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-
   <servlet>
-    <servlet-name>rest-application</servlet-name>
+    <servlet-name>rest-shiro</servlet-name>
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
     <init-param>
       <param-name>javax.ws.rs.Application</param-name>
@@ -11,7 +10,7 @@
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>rest-application</servlet-name>
+    <servlet-name>rest-shiro</servlet-name>
     <url-pattern>/api/*</url-pattern>
   </servlet-mapping>
 
@@ -29,6 +28,7 @@
     <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
   </filter>
 
+ 
   <filter-mapping>
     <filter-name>ShiroFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -37,5 +37,4 @@
     <dispatcher>INCLUDE</dispatcher>
     <dispatcher>ERROR</dispatcher>
   </filter-mapping>
-
 </web-app>
