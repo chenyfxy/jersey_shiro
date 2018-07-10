@@ -14,7 +14,7 @@ import org.secnod.shiro.jaxrs.Auth;
 public class AuthResource {
 	@GET
 	@Path("/access")
-	@RequiresPermissions("protected:read")
+	@RequiresPermissions("ROLE_USER_GET")
     public String getxxx() {
         return "OK";
     }
@@ -26,7 +26,7 @@ public class AuthResource {
     }
 
     @PUT
-    @RequiresPermissions("protected:write")
+    @RequiresPermissions("ROLE_ADMIN")
     public String set() {
         return "xxx";
     }
